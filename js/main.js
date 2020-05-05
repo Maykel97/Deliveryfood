@@ -22,6 +22,8 @@ const buttonOut = document.querySelector(".button-out");
 let login = localStorage.getItem("user");
 
 function toogleModalAuth() {
+  // убирает красную рамку после того как закрыть форму
+  loginInput.style.borderColor = "";
   modalAuth.classList.toggle("is-open");
 }
 
@@ -55,25 +57,31 @@ function authorized() {
   buttonOut.addEventListener("click", logOut);
 }
 
-// // когда пользователь не авторизован
+//когда пользователь не авторизован
 
 function notAuthorized() {
   console.log("Не авторизован");
 
   function logIn(event) {
     event.preventDefault();
-    login = loginInput.value;
 
-    // чтоб не приходилось заного логинится когда обновляем страницу
-    localStorage.setItem("user", login);
+    // если не ввести логин
 
-    toogleModalAuth();
-    buttonAuth.removeEventListener("click", toogleModalAuth);
-    closeAuth.removeEventListener("click", toogleModalAuth);
-    logInForm.removeEventListener("submit", logIn);
-    // очищение поля логин
-    logInForm.reset();
-    checkAucth();
+    if (loginInput.value.trim()) {
+      // чтоб не приходилось заного логинится когда обновляем страницу
+      localStorage.setItem("user", login);
+
+      toogleModalAuth();
+      buttonAuth.removeEventListener("click", toogleModalAuth);
+      closeAuth.removeEventListener("click", toogleModalAuth);
+      logInForm.removeEventListener("submit", logIn);
+      // очищение поля логин
+      logInForm.reset();
+      checkAucth();
+      // иначе граница будет красной
+    } else {
+      loginInput.style.borderColor = "red";
+    }
   }
 
   buttonAuth.addEventListener("click", toogleModalAuth);

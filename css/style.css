@@ -767,10 +767,6 @@ button {
 }
 
 @media (max-width: 480px) {
-  .button-text {
-    /*display: none;*/
-  }
-
   .button-icon {
     margin: 0;
   }
