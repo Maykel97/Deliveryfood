@@ -46,7 +46,7 @@ button {
 
 .input-address {
   width: 100%;
-  background-image: url(../img/icon/home.svg);
+  background-image: url(img/icon/home.svg);
 }
 
 .search {
@@ -55,7 +55,7 @@ button {
 
 .input-search {
   width: 300px;
-  background-image: url(../img/icon/search.svg);
+  background-image: url(img/icon/search.svg);
 }
 
 .buttons {
@@ -767,6 +767,10 @@ button {
 }
 
 @media (max-width: 480px) {
+  /* .button-text {
+        display: none;
+    } */
+
   .button-icon {
     margin: 0;
   }
